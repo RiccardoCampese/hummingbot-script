@@ -41,7 +41,7 @@ cdef class StrategyPyBase(StrategyBase):
 
     cdef c_tick(self, double timestamp):
         StrategyBase.c_tick(self, timestamp)
-        return self.tick(timestamp)
+        self.tick(timestamp)
 
     async def tick(self, timestamp: float):
         raise NotImplementedError

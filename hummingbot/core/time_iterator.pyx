@@ -22,8 +22,8 @@ cdef class TimeIterator(PubSub):
     cdef c_tick(self, double timestamp):
         self._current_timestamp = timestamp
 
-    def tick(self, timestamp: float):
-        self.c_tick(timestamp)
+    async def tick(self, timestamp: float):
+        await self.c_tick(timestamp)
 
     @property
     def current_timestamp(self) -> float:

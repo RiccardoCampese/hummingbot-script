@@ -116,7 +116,7 @@ cdef class Clock:
                 for ci in self._current_context:
                     child_iterator = ci
                     try:
-                        await child_iterator.c_tick(self._current_tick)
+                        child_iterator.c_tick(self._current_tick)
                     except StopIteration:
                         self.logger().error("Stop iteration triggered in real time mode. This is not expected.")
                         return
